@@ -1,0 +1,49 @@
+
+PROBLEM : 
+# why is fetch async and sync dosent work in actions
+1. action creators can only return plain js obj with type property
+2. the action will get sent to the reducer before the data is fetched from an API.
+
+
+SOLUTION :
+# using third party middleware such as: 
+1. REDUX THUNK (npm i redux-thunk)
+2. REDUX SAGA 
+
+
+--> REDUX THUNK :
+what it does. it allow actionsCreator to [return an obj or a function] 
+// now action can return function ,
+// what we are doing is returning a function that will force action to wait until we get data from API asynchronisly 
+
+
+// export const fetchPosts = () => {
+//     return async (dispatch,getState) => {
+//         const response = await Axios.get('https://jsonplaceholder.typicode.com/posts');
+//         dispatch({
+//             type : "FETCH_POST",
+//             payload : response.data
+//         })
+//     }
+// }
+
+
+
+-----------------------------------------------------------------------
+#LOADING AND HANDLING REQUEST success/failure...
+-----------------------------------------------------------------------
+unsing REQUEST/SUCCESS/FAILURE pattern to handle loading and error getState
+separate action for REQUEST , SUCCESS and FAILURE
+
+
+
+
+
+
+
+
+
+
+
+
+
